@@ -1,68 +1,86 @@
-body{
-    background: linear-gradient(to right, lightgrey, rgb(226, 226, 226),#ffffff);
+body {
+  background: linear-gradient(to right, lightgrey, rgb(226, 226, 226), #ffffff);
 }
-.card{
-    width: 18rem;
-    /* min-width: 300px; */
+.header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+  z-index: 1000;
+  background: linear-gradient(to right, lightgrey, #fff);
 }
-.header{
-    display: flex;
-    position: sticky;
-    top: 0;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    background: linear-gradient(to left, #fff, lightgrey) ;
-}
-.branding-area{
-    color: black;
-}
-.count-area{
-    border: 1px solid black;
-    padding: 0.5em 1em;
-    border-radius: 1rem;
-    font-size: 24px;
-    font-weight: bold;
+.count-area {
+  padding: 0.3em 0.8em;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px -5px black;
+  font-size: 22px;
+  font-weight: bold;
 }
 .count-area i {
-    margin-right: 0.1em;
+  margin-right: 0.1em;
 }
-.clearBtn-div{
-    display:flex;
-    justify-content: end;
+.clearBtn-div {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 13%;
+  margin-bottom: 1%;
 }
-/* .cart-count{
-
-} */
-.img-div{
-    width: 100%;
-    height: 160px;
-    /* z-index: 1; */
-}
-.card-group{
+.card {
+    width: 18rem;
+    margin-bottom: 1%;
+  }
+#card-group {
     display: flex;
     flex-wrap: wrap;
+    gap: 1%;
     justify-content: center;
 }
-.card-body{
-    background-color:#fff;
+.card-body {
+    background-color: #fff;
     z-index: 2;
+  }
+.img-div {
+  width: 100%;
+  height: 160px;
 }
-.addBtn{
-    background: linear-gradient(to right, dodgerblur,lightblue, lightgrey);
+.card-body i {
+  color: gold;
+  font-size: 13px;
+}
+button {
+  border: 0;
+  padding: 7px 12px;
+  font-size: 14px;
+}
+.clrBtn{
+    background-color: #fff;
+    border: 1px solid ;
+    color: black;
+    font-size: 12px;
+    padding: 3px 9px;
+    transition: 0.25s all ease-in-out;
+}
+.clrBtn:hover{
+    background-color: rgb(162, 158, 158);
+    border: 1px solid ;
     color: #fff;
 }
-.addBtn:hover{
-    background: linear-gradient(to right, darkblue, dodgerblur,lightblue );
-    border:-2px solid black;
-    color: #fff;
+.addBtn {
+  color: #ffffff;
+  background-color: rgb(104, 104, 105);
+  transition: 0.25s all ease-in-out;
 }
-.removeBtn{
-    background: linear-gradient(to right, red,orangered);
-    color: #fff;
+.addBtn:hover {
+  background-color: rgb(85, 85, 86);
+  padding: 7px 23px;
 }
-.removeBtn:hover{
-    background: linear-gradient(to right, darkred, red);
-    border:-1px solid red;
-    color: #fff;
+.removeBtn {
+  background-color: rgb(61, 21, 21);
+  transition: 0.25s all ease-in-out;
+}
+.removeBtn:hover {
+  background-color: darkred;
+  padding: 7px 23px;
 }
