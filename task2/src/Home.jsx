@@ -18,6 +18,12 @@ function Home() {
     }
   };
 
+const handleClear = () => {
+  setcount(count = 0);
+  setIsClicked(isClicked = []);
+}
+
+
   const data = [
     {
       id: 1,
@@ -89,7 +95,11 @@ function Home() {
       </header>
 
       <div className="container">
-        {data.map((items) => (
+        <div>
+          <button onClick="handleClear" >Clear All</button>
+        </div>
+        <div className="card-group">
+          {data.map((items) => (
           <div className="card" key={items.id}>
             <div className="img-div">
             <img src={items.imgUrl} className="card-img-top"/>
@@ -115,6 +125,7 @@ function Home() {
             </div>
           </div>
         ))}
+        </div>
       </div>
     </>
   );
