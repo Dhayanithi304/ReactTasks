@@ -8,7 +8,7 @@ body{
 .header{
     display: flex;
     position: sticky;
-    top: 0.1px;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
@@ -35,11 +35,7 @@ body{
     height: 160px;
     /* z-index: 1; */
 }
-/* .card-img-top{
-    overflow:hidden;
-    z-index: -1;
-} */
-div .container{
+.card-group{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -48,8 +44,21 @@ div .container{
     background-color:#fff;
     z-index: 2;
 }
+.addBtn{
+    background: linear-gradient(to right, dodgerblur,lightblue, lightgrey);
+    color: #fff;
+}
 .addBtn:hover{
-    background: linear-gradient(to right, #fff, lightgrey);
-    border:2px solid -2px;
-    color: black;
+    background: linear-gradient(to right, darkblue, dodgerblur,lightblue );
+    border:-2px solid black;
+    color: #fff;
+}
+.removeBtn{
+    background: linear-gradient(to right, red,orangered);
+    color: #fff;
+}
+.removeBtn:hover{
+    background: linear-gradient(to right, darkred, red);
+    border:-1px solid red;
+    color: #fff;
 }
