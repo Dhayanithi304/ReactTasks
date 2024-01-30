@@ -15,7 +15,7 @@ body{
     background: linear-gradient(to left, #fff, lightgrey) ;
 }
 .branding-area{
-    /* color: #fff; */
+    color: black;
 }
 .count-area{
     border: 1px solid black;
@@ -35,10 +35,10 @@ body{
     height: 160px;
     /* z-index: 1; */
 }
-.card-img-top{
-    /* overflow:hidden; */
-    /* z-index: -1; */
-}
+/* .card-img-top{
+    overflow:hidden;
+    z-index: -1;
+} */
 div .container{
     display: flex;
     flex-wrap: wrap;
