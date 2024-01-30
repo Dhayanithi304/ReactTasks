@@ -80,18 +80,20 @@ function Home() {
   return (
     <>
       <header className="header">
-        <div>
+        <div className="branding-area">
           <h1>Shopping</h1>
         </div>
         <div className="count-area">
-          <i className="fa fa-cart-shopping"></i> {count}
+          <i className="fa fa-cart-shopping"></i><span className="cart-count">Cart {count}</span>
         </div>
       </header>
 
       <div className="container">
         {data.map((items) => (
           <div className="card" key={items.id}>
-            <img src={items.imgUrl} className="card-img-top" />
+            <div className="img-div">
+            <img src={items.imgUrl} className="card-img-top"/>
+            </div>
             <div className="card-body">
               <h5 className="card-title">{items.name}</h5>
               <i className="fa fa-star"></i>
