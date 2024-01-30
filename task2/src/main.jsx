@@ -5,7 +5,7 @@ import "./index.css";
 import Home from "./Home.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Home />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
