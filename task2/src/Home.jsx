@@ -87,7 +87,7 @@ const handleClear = () => {
     <>
       <header className="header">
         <div className="branding-area">
-          <h1>Shopping</h1>
+          <h1>Luxury Cars</h1>
         </div>
         <div className="count-area">
           <i className="fa fa-cart-shopping"></i><span className="cart-count">Cart {count}</span>
@@ -95,7 +95,7 @@ const handleClear = () => {
       </header>
 
       <div className="container">
-        <div>
+        <div className="clearBtn-div">
           <button onClick="handleClear" >Clear All</button>
         </div>
         <div className="card-group">
