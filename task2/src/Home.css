@@ -27,6 +27,10 @@ body{
 .count-area i {
     margin-right: 0.1em;
 }
+.clearBtn-div{
+    display:flex;
+    justify-content: end;
+}
 /* .cart-count{
 
 } */
