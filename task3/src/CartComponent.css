@@ -1,0 +1,24 @@
+#card-group{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    background-color:lightgrey;
+    text-align: start;
+    padding: 1rem;
+    width: 16rem;
+}
+.ToDocart-display{
+    background-color: rgb(226, 222, 222);
+    height: 100vh;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid black;
+}
+option[value="Completed"]{  
+background-color: red;
+}
