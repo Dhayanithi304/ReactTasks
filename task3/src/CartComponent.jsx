@@ -4,7 +4,10 @@ import "./CartComponent.css";
 function CartComponent(props) {
   const Data = props.dataArr;
   const setData = props.setDataArr;
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const [dialog, setDialog] = useState([]);
 
+  //handkeEdit function for transfer the cards value to input area for edit the value  
   const handleEdit = (event) => {
     const Index = event.target.getAttribute("data-index");
     const record = Data[Index];
@@ -18,32 +21,78 @@ function CartComponent(props) {
     setData(Data.filter((item, index) => Index != index));
   };
 
+  //handleDelete function for delete the card from the card group
   const handleDelete = (event) => {
     const Index = event.target.getAttribute("data-index");
     setData(Data.filter((item, index) => Index != index));
+    setDialog(dialog.filter((item, index) => Index != index));
   };
 
-  const handledropdown = (value) =>{
-    const select = document.getElementById('dropdown');
-    console.log(select.value);
-  }
+  //open the dialog panel
+  const openDialog = () => {
+    setDialogOpen(true);
+  };
+
+  const handleDialog = (event, newStatus, name, discription) => {
+    const Index = event.target.getAttribute("data-index");
+
+    if (event.target.value == "Completed") {
+      setDialog([...dialog, { name, discription }]);
+    }
+
+    event.target.value == "Incompleted"
+      ? setDialog(
+          dialog.filter((item, index) => {
+            Index != index;
+          })
+        )
+      : dialog;
+  };
+
+  // console.log(dialog);
+  const handleRemoveDialog = (event, select) => {
+    const Index = event.target.getAttribute("data-index");
+    setDialog(dialog.filter((item, index) => {Index != index;}));
+    // (event.target.document.getElementById("select")).value = "Incompleted";
+    console.log(select);
+    select.value = "Incompleted";   
+  };
+
+  // console.log(Data);
+  const closeDialog = () => {
+    setDialogOpen(false);
+  };
   return (
     <>
-      <div className="ToDocart-display ">
-        <div>ToDo</div>
+      <div className="ToDocart-display position-relative">
+        <div className="cards-header d-flex justify-content-between align-items-center">
+          <h5>ToDo</h5>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => openDialog()}
+          >
+            Status
+          </button>
+        </div>
         <div id="card-group">
           {Data.map((item, index) => (
             <div className="card" key={index}>
               <div className="card-body">
-                <div>
+                <div className="card-content">
                   <p className="card-text">Name: {item.name}</p>
                   <p className="card-text">Discription: {item.discription}</p>
-                  <label htmlFor="dropdown">Status: </label>
-                  <select className="dropdown" id="dropdown" onChange={()=>handledropdown(value)}>
-                    <option value="Not-Completed">Not Completed</option>
+                </div>
+                <div>
+                  <select
+                    id="select"
+                    data-index={index}
+                    onChange={(event) =>handleDialog(event,event.target.value,item.name,item.discription)}>
+                    <option value="Incompleted">Incompleted</option>
                     <option value="Completed">Completed</option>
                   </select>
-                  <br />
+                </div>
+                <div>
                   <button
                     className="btn btn-success m-2"
                     data-index={index}
@@ -62,6 +111,30 @@ function CartComponent(props) {
               </div>
             </div>
           ))}
+          {isDialogOpen && (
+            <div className="dialog position-absolute">
+              <button className="Xbtn" onClick={closeDialog}>
+                <i className="fa fa-circle-xmark"></i>
+              </button>
+              <div className="dialog-content">
+                {dialog.map((item, index) => (
+                  <div className="d-c" key={index}>
+                    <p className="content">
+                      <span> Name:</span> {item.name},<span> Discription:</span>{" "}
+                      {item.discription}
+                    </p>
+                    <button
+                      className="btn btn-danger"
+                      data-index={index}
+                      onClick={() => handleRemoveDialog(event, event.target.document.getElementById('select'))}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
