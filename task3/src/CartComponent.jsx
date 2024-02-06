@@ -33,23 +33,24 @@ function CartComponent(props) {
     setDialogOpen(true);
   };
 
-  const handleDialog = (event, newStatus, name, discription) => {
+  const handleDialogChange = (event, name, discription) => {
     const Index = event.target.getAttribute("data-index");
 
     if (event.target.value == "Completed") {
-      setDialog([...dialog, { name, discription }]);
+      Data[Index].status = "Completed";
+      setDialog([...dialog, { name, discription, status: Data[Index].status }]);
+      console.log("textttttt",dialog);
     }
 
     event.target.value == "Incompleted"
       ? setDialog(
-          dialog.filter((item, index) => {
-            Index != index;
-          })
+          dialog.filter((item, index) => {name != item.name && discription != item.discription}),
+          // dialog.filter((item, index) => {i != index})
+          Data[Index].status = "Incompleted"
         )
       : dialog;
   };
 
-  // console.log(dialog);
   const handleRemoveDialog = (event, select) => {
     const Index = event.target.getAttribute("data-index");
     setDialog(dialog.filter((item, index) => {Index != index;}));
@@ -58,7 +59,6 @@ function CartComponent(props) {
     select.value = "Incompleted";   
   };
 
-  // console.log(Data);
   const closeDialog = () => {
     setDialogOpen(false);
   };
@@ -87,7 +87,8 @@ function CartComponent(props) {
                   <select
                     id="select"
                     data-index={index}
-                    onChange={(event) =>handleDialog(event,event.target.value,item.name,item.discription)}>
+                    value={item.status}
+                    onChange={(event) =>handleDialogChange(event, item.name, item.discription)}>
                     <option value="Incompleted">Incompleted</option>
                     <option value="Completed">Completed</option>
                   </select>
