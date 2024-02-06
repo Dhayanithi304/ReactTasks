@@ -4,7 +4,7 @@
 }
 .head-title{
     border-bottom: 1px solid #444343;
-    text-shadow: 0 0 10px #7e7d7d;
+    text-shadow: 0 0 13px #7e7d7d;
     color: #fff;
     padding: 0 2rem;
 }
@@ -12,8 +12,9 @@
     display: flex;
     align-items:flex-end;
     margin-left: 1.5rem;
+    margin-right: 1.5rem;
     gap: 3%;
-    margin-bottom: 4%;
+    margin-bottom: 2.5rem;
 }
 label{
     font-size: 13px;
@@ -21,7 +22,10 @@ label{
 }
 .input-body-area input{
     display:flex ;
+    border: transparent;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.2rem;
 }
 .btn{
-    padding: 3px 8px;
+    padding: 3px 10px;
 }

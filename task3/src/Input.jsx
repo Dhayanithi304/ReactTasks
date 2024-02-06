@@ -5,17 +5,7 @@ import "./Input.css";
 function Input() {
   const [Data, setData] = useState([]);
   const [name, setname] = useState("");
-  const [discription, setdiscription] = useState("");
-
-  //get the name input value
-  const handleInputChange1 = (event) => {
-    setname(event.target.value);
-  };
-
-  //get the discription input value
-  const handleInputChange2 = (event) => {
-    setdiscription(event.target.value);
-  };
+  const [description, setdescription] = useState("");
 
   //function for save the input . it push values to an array they show us to card value
   const handleSave = () => {
@@ -23,10 +13,15 @@ function Input() {
       alert("Atleast, Enter your Name");
       return false;
     }
-    
-    setData([...Data, { name, discription, status: "Incompleted" }]);
+    const newData = {
+      id: Date.now(),
+      name: name,
+      description: description,
+      status: "Incompleted",
+    };
+    setData([...Data, newData]);
     setname("");
-    setdiscription("");
+    setdescription("");
   };
 
   return (
@@ -40,33 +35,34 @@ function Input() {
             <label htmlFor="name">Name </label>
             <input
               type="text"
-              id="name"
+              placeholder="Name"
               value={name}
-              onChange={handleInputChange1}
+              onChange={(e) => setname(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor="discription">Discription </label>
+            <label htmlFor="description">Description </label>
             <input
               type="text"
-              id="discription"
-              value={discription}
-              onChange={handleInputChange2}
+              id="description"
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setdescription(e.target.value)}
             />
           </div>
           <button
             type="button"
             className="btn btn-primary"
             onClick={handleSave}
-            >
+          >
             Save
           </button>
         </div>
         <CartComponent
-          dataArr={Data}
-          setDataArr={setData}
-          setNameInput={setname}
-          setDisInput={setdiscription}
+          Data={Data}
+          setData={setData}
+          setname={setname}
+          setdescription={setdescription}
         />
       </div>
     </>
