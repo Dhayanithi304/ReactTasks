@@ -64,7 +64,7 @@ export function DS() {
   return (
     <>
         {ds.map((card, index) => (
-          <div id="card" key={index}>
+          <div className="card cards" key={index}>
             <div className="img-div">
               <img src={card.imgUrl} alt="course" className="card-img-top" />
             </div>

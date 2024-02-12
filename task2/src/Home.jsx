@@ -104,7 +104,9 @@ function Home() {
 
       <div className="container">
         <div className="clearBtn-div">
-          <button onClick={handleClear} className="clrBtn">Clear All</button>
+          <button onClick={handleClear} className="clrBtn">
+            Clear All
+          </button>
         </div>
         <div id="card-group">
           {data.map((items) => (
@@ -132,8 +134,7 @@ function Home() {
                 )}
                 {items.star == 3 ? (
                   <i className="fa fa-star">
-                    {" "}
-                    <i className="fa fa-star"></i>{" "}
+                    <i className="fa fa-star"></i>
                     <i className="fa fa-star"></i>
                   </i>
                 ) : (
@@ -141,8 +142,8 @@ function Home() {
                 )}
                 {items.star == 4 ? (
                   <i className="fa fa-star">
-                    <i className="fa fa-star"></i>{" "}
-                    <i className="fa fa-star"></i>{" "}
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
                     <i className="fa fa-star"></i>
                   </i>
                 ) : (
@@ -151,8 +152,8 @@ function Home() {
                 {items.star == 5 ? (
                   <i className="fa fa-star">
                     <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>{" "}
-                    <i className="fa fa-star"></i>{" "}
+                    <i className="fa fa-star"></i>
+                    <i className="fa fa-star"></i>
                     <i className="fa fa-star"></i>
                   </i>
                 ) : (

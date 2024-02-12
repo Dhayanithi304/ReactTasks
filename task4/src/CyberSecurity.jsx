@@ -57,7 +57,7 @@ function CyberSecurity() {
     <>
       {/* <div className="card-group" id="card-group"> */}
         {cc.map((card, index) => (
-          <div id="card" key={index}>
+          <div className="card cards" key={index}>
             <div className="img-div">
               <img src={card.imgUrl} alt="course" className="card-img-top" />
             </div>

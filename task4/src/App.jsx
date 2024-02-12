@@ -1,6 +1,6 @@
 import All from "./All";
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
 import FSD from "./FSD";
 import DS from "./DS";
 import CyberSecurity from "./CyberSecurity";
@@ -30,7 +30,7 @@ function App() {
               CARRER
             </Link>
           </nav>
-          <div id="card-group">
+          <div id="cards-g">
             <Routes>
               <Route path="/" exact Component={All}></Route>
               <Route

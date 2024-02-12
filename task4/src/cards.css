@@ -1,5 +1,4 @@
-
-#card{
+.cards{
     max-width: 22.1rem;
     min-height: 27rem;
     display:flex ;

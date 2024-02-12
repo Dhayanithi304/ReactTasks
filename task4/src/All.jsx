@@ -1,5 +1,5 @@
 import React from 'react'
-import { FSD } from "./FSD.jsx";
+import FSD from "./FSD.jsx";
 import DS from './DS.jsx';
 import CyberSecurity from './CyberSecurity.jsx';
 import Carrer from './Carrer.jsx';
