@@ -6,11 +6,11 @@ function Card() {
     const {setProducts} = useContext(Context);
     // const {count} = useContext(Context);
     // const {setCount} = useContext(Context);
-    const [isClicked, setIsClicked] = useState(false);
+    //const [isClicked, setIsClicked] = useState(false);
 
     const handleCountIncrese = (itemID) => {
       setProducts(products.map((item)=>{
-        if(itemID == item.id){
+        if(itemID == item.id && item.count <= item.stock ){
           return { ...item, count: item.count + 1,
              totalprice: item.totalprice + item.price  };
         }
@@ -20,20 +20,30 @@ function Card() {
 
     const handleCountDecrese = (itemId) => {
       setProducts(products.map((item)=>{
-        if(itemId == item.id && item.count > 0 && item.totalprice >= item.price){
+        if(itemId == item.id && item.count > 0 && item.totalprice >= item.price && item.stock > 0){
           return { ...item, count: item.count - 1,
-             totalprice: item.totalprice - item.price  };
+             totalprice: item.totalprice - item.price, stock: item.stock - 1 };
         }
         return item;
       }));
     }
 
     const handleAddClicked = () => {
-      setIsClicked(true)
+      products.map((item)=> {
+          if(itemId == item.id ){
+          return { ...item, isClicked: item.isClicked = true };
+        }
+        return item;
+      })
     }
 
     const handleRemove = () => {
-      setIsClicked(false)
+      products.map((item)=> {
+          if(itemId == item.id ){
+          return { ...item, isClicked: item.isClicked = false };
+        }
+        return item;
+      })
     }
   return (
     <div className='container'>    
@@ -56,10 +66,10 @@ function Card() {
          <h3>&#8377;{item.price}<small className="text-body-secondary text-muted"> -{item.discountPercentage}%</small>  </h3>
           </div>
           <button type="button" className='btn btn-sm btn-primary mx-3' onClick={()=>handleAddClicked()}>Add to Cart</button>
-         {isClicked ? <button className='btn btn-sm btn-secondary' onClick={()=>handleRemove()}>Remove</button> : ""}
+         {item.isClicked ? <button className='btn btn-sm btn-secondary' onClick={()=>handleRemove()}>Remove</button> : ""}
        </div>
        
-      {isClicked ? 
+      {item.isClicked ? 
         <div className="col-md-3">
         <div className="card-body text-end d-flex flex-column justify-content-between" >
           <div>
