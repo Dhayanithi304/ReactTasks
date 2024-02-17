@@ -77,7 +77,7 @@ function Card() {
             <span className='mx-2'>{item.count}</span>
             <button className='btn-sm btn-secondary rounded-circle' onClick={()=>handleCountIncrese(item.id)}><i className='fa fa-add'></i></button>
           </div>
-          
+          <p className='card-text'>STOCK : {item.stock}</p>
           <h6 className='card-text'>SHOPPING : FREE</h6>
           <h6 className='card-text'>TOTAL : &#8377;{item.totalprice}</h6>
 
