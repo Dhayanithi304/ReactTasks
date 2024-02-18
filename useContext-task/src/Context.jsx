@@ -1,38 +1,10 @@
 import React, { createContext, useState } from "react";
-import { useEffect } from "react";
 
 const Context = createContext();
 
 function Provider({ children }) {
-  // const [data, setData] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         "https://drive.google.com/file/d/1fOadeM1liwbUK38z92F0XYugk2jwqK2r/view"
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       const json = await response.json();
-  //       setData(json);
-  //     } catch (error) {
-  //       console.error("Error occured:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  //   console.log("data", data);
-  // }),[];
-
-  // const [count, setCount] = useState([
-  //   { id: 1, c: 0 },
-  //   { id: 2, c: 0 },
-  //   { id: 3, c: 0 },
-  //   { id: 4, c: 0 },
-  //   { id: 5, c: 0 }
-  // ]);
+  const [cart, setCart] = useState(0);
 
   const [products, setProducts] = useState([
     {
@@ -140,10 +112,9 @@ function Provider({ children }) {
       ],
     },
   ]);
-  // });
 
   return (
-    <Context.Provider value={{ products, setProducts }}>
+    <Context.Provider value={{ products, setProducts, cart, setCart }}>
       {children}
     </Context.Provider>
   );

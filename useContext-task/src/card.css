@@ -1,0 +1,53 @@
+.header {
+  z-index: 1000;
+}
+.cart-count {
+  padding: 0.3em 0.8em;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 0.5px solid black;
+  font-weight: 700;
+}
+.card {
+  background-color: #c3c6e885;
+}
+.img-div {
+  height: 17rem;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  cursor: pointer;
+}
+img[idd="1"] {
+  background-color: rgb(37, 37, 37);
+  height: 16rem;
+  object-fit: scale-down;
+}
+.descrip {
+  font-size: 14px;
+}
+.d-para {
+  font-size: 14px;
+}
+.rating {
+  font-size: 13px;
+}
+.fa-star{
+    color:rgb(213, 213, 0)
+}
+.para {
+  font-size: 12px;
+  line-height: 0.5rem;
+}
+.total-div {
+  border: 0;
+  border-top: 1px dashed grey;
+}
+
+
+@media (max-width: 768px) { 
+    
+ }
