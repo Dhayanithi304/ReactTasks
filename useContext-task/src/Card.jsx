@@ -75,11 +75,10 @@ function Card() {
     <div className='container z-index-0'>    
     {products.map((item) => (
      <div className="card mb-3 " key={item.id}>
-     <div className="row g-0">
-       <div className="col-md-4 img-div">
-         <img src={item.thumbnail} className="img-fluid rounded img" alt="..." idd={item.id} />
+     <div className="row g-3">
+       <div className="col-md-4 d-flex align-items-center">
+         <img src={item.thumbnail} className="img-fluid rounded" alt="..." />
        </div>
-
        <div className="col-md-5 d-flex ">
          <div className="card-body text-start d-flex flex-column justify-content-between">
            <h4 className="card-title ">{item.title}</h4>
@@ -104,18 +103,18 @@ function Card() {
        </div>
        
       {item.isClicked ? 
-      <div className="col-md-3 d-flex bg-light rounded">
+      <div className="col-md-3 d-flex bg-light rounded py-3">
         <div className="card-body text-end d-flex flex-column justify-content-between" >
-          <div className='mb-3 d-flex justify-content-end'>
+          <div className='mb-4 d-flex justify-content-end'>
             <button className='btn btn-sm btn-light border-secondary rounded-end rounded-circle addbtn' onClick={()=>handleCountDecrease(item.id)}><i className='fa fa-subtract cou'></i></button>
             <span className='mx-2 fs-5 fw-bold border-primary '>{item.count}</span>
             <button className='btn btn-sm btn-secondary rounded-start rounded-circle addbtn' onClick={()=>handleCountIncrease(item.id)}><i className='fa fa-add cou'></i></button>
           </div>
-          <div className='mb-4'>
+          <div className='mb-5'>
             <p className='card-text text-start d-flex justify-content-between fs-6 fw-bold para'><span>STOCK :</span><span>{item.stock}</span></p>
           </div>
-            <p className='card-text text-start d-flex justify-content-between para'><span>SHIPPING :</span><span>FREE</span></p>
-          <div className='total-div pt-4 mb-3'>
+            <p className='card-text text-start d-flex justify-content-between para '><span>SHIPPING :</span><span>FREE</span></p>
+          <div className='total-div pt-4 mb-4'>
             <p className='card-text text-start d-flex justify-content-between align-items-center para'><span>TOTAL :</span><span className='fs-5 fw-bold'>&#8377;{item.totalprice}</span></p>
           </div>
           <div>
