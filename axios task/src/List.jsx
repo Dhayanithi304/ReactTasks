@@ -4,53 +4,52 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function List() {
   const { data, setData } = useContext(Context);
-  // const [input, setInput] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  // });
 
-  const name = useRef();
-  const email = useRef();
-  const phone = useRef();
-
-  const handleEdit = (id, index) => {
+  const handleEdit = (id) => {
     const newData = data.map((item) =>
       item.id === id ? { ...item, isClicked: !item.isClicked } : item
     );
     setData(newData);
-    // Callback(index);
-    // setInput({...input, name: newlist.name, email: newlist.email, phone: newlist.phone });
-    // console.log("input",input);
   };
-
-  // const inputBack = (index) => {
-  //   var newlist = data[index];
-  //   name.current.value = newlist.name;
-  //   email.current.value = newlist.email;
-  //   phone.current.value = newlist.phone;
-  // };
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id != id));
   };
 
-  const handleUpdate = (id, index) => {
+  const handleUpdate = (id) => {
     const newData = data.map((item) =>
-      item.id === id
-        ? {
-            ...item,
-            isClicked: !item.isClicked,
-            name: name.current.value,
-            email: email.current.value,
-            phone: phone.current.value
-          }
-        : item
+      item.id === id ? { ...item, isClicked: !item.isClicked } : item
     );
     setData(newData);
-    console.log(data);
     
   };
+
+  const handleSaveName = (id, value) => {
+    setData(data.map(item => {
+        if (item.id === id) {
+            return { ...item, name: value };
+        }
+        return item;
+    }));
+};
+
+  const handleSaveEmail = (id, value) => {
+    setData(data.map(item => {
+        if (item.id === id) {
+            return { ...item, email: value };
+        }
+        return item;
+    }));
+};
+
+  const handleSavePhone = (id, value) => {
+    setData(data.map(item => {
+        if (item.id === id) {
+            return { ...item, phone: value };
+        }
+        return item;
+    }));
+};
 
   return (
     <div className="table-responsive">
@@ -64,28 +63,31 @@ function List() {
             <th className="th">Action</th>
           </tr>
         </thead>
-        <tbody className="text-start">
+
+        <tbody className="text-start align-middle">
           {data.map((item, index) => (
             <tr key={item.id}>
-              <td>{index + 1}</td>
+              <td className="text-center fw-bold">{index + 1}</td>
+
               <td>
                 {item.isClicked ? (
                   <input
                     type="text"
                     value={item.name}
-                    onChange={(e) => setData(data.map((item)=>{[...item, {name: e.target.value}] }))}
+                    onChange={(e) => handleSaveName( item.id ,e.target.value)}
                     className="border text-dark bg-light border-1 border-secondary rounded-2"
                   ></input>
                 ) : (
                   item.name
                 )}
               </td>
+
               <td>
                 {item.isClicked ? (
                   <input
                   type="email"
                     value={item.email}
-                    onChange={(e) => setData(data.map((item)=>{[...item, {email: e.target.value}] }))}
+                    onChange={(e) => handleSaveEmail( item.id ,e.target.value)}
                     className="border text-dark bg-light border-1 border-secondary rounded-2"
                   ></input>
                 ) : (
@@ -95,16 +97,15 @@ function List() {
               <td>
                 {item.isClicked ? (
                   <input
-                  type="text"
                     value={item.phone}
-                    onChange={(e) => setData(data.map((item)=>{[...item, {phone: e.target.value}] }))}
+                    onChange={(e) => handleSavePhone( item.id, e.target.value)}
                     className="border text-dark bg-light border-1 border-secondary rounded-2"
                   ></input>
                 ) : (
                   item.phone
                 )}
               </td>
-              <td>
+              <td className="d-flex justify-content-around">
                 {!item.isClicked ? (
                   <>
                     <button
@@ -114,7 +115,7 @@ function List() {
                       <i className="fa fa-pen-to-square"></i>
                     </button>
                     <button
-                      className="btn"
+                      className="btn te"
                       onClick={() => handleDelete(item.id)}
                     >
                       <i className="fa fa-trash-can"></i>
@@ -123,7 +124,7 @@ function List() {
                 ) : (
                   <button
                     className="btn"
-                    onClick={(e) => handleUpdate(item.id, index)}
+                    onClick={(e) => handleUpdate(item.id)}
                   >
                     <i className="fa fa-upload"></i>
                   </button>

@@ -8,7 +8,7 @@ function AppRouter() {
   return (
     <>
       <Router>
-        <nav className="navbar navbar-expand-sm bg-light justify-content-between position-fixed top-0 w-100vw">
+        <nav className="navbar navbar-expand-lg bg-light justify-content-between  w-100">
           <div className="container-fluid">
             <div className="navbar-nav">
               <h1 className="h1">List Out</h1>

@@ -2,27 +2,9 @@ import React, { useContext } from "react";
 import { Context } from "./Context";
 
 function Home() {
-  const { data, setData, nameRef, emailRef, phoneRef} = useContext(Context);
+  const { data, setData, nameRef, emailRef, phoneRef } = useContext(Context);
 
   const handleSubmit = () => {
-    // if (input.name == "") {
-    //   alert("Atleast, Enter your Name");
-    //   return false;
-    // }
-
-    // const newData = {
-    //   id: data.length + 1,
-    //   name: input.name,
-    //   email: input.email,
-    //   phone: input.phone,
-    // };
-    // setData([...data, newData]);
-    // setInput({
-    //   name: "",
-    //   email: "",
-    //   phone: "",
-    // });
-
     const newData = {
       id: data.length + 1,
       name: nameRef.current.value,
@@ -36,9 +18,10 @@ function Home() {
     phoneRef.current.value = "";
     console.log(data);
   };
+
   return (
-    <div>
-      <form className="text-start">
+    <div className="w-100" style={{width : '100em' }}>
+      <form className="text-start w-100 d-flex flex-column">
         <div className="mb-3 mt-3">
           <label htmlFor="name" className="form-label">
             Name:
@@ -49,8 +32,6 @@ function Home() {
             id="name"
             placeholder="Enter your Name"
             name="name"
-            // value={input.name}
-            // onChange={(e) => setInput({ ...input, name: e.target.value })}
             ref={nameRef}
           />
         </div>
@@ -64,8 +45,6 @@ function Home() {
             id="email"
             placeholder="Enter email"
             name="email"
-            // value={input.email}
-            // onChange={(e) => setInput({ ...input, email: e.target.value })}
             ref={emailRef}
           />
         </div>
@@ -79,8 +58,6 @@ function Home() {
             id="number"
             placeholder="Enter Phone Number"
             name="number"
-            // value={input.phone}
-            // onChange={(e) => setInput({ ...input, phone: e.target.value })}
             ref={phoneRef}
           />
         </div>

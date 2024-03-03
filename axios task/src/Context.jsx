@@ -5,12 +5,11 @@ const Context = createContext();
 
 function Provider({ children }) {
   const [data, setData] = useState(null);
-  // const [input, setInput] = useState({
-  //   name:"", email: "", phone:""
-  // });
+
   const nameRef = useRef();
   const emailRef = useRef();
   const phoneRef = useRef();
+
 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
@@ -25,6 +24,8 @@ function Provider({ children }) {
     }
     
   },[]);
+
+  // console.log(data);
 
   if (!data) return null;
 
